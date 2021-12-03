@@ -8,12 +8,12 @@ import {getMoviesByTitleAsync} from "../../redux/imdbSlice/ImdbSlice";
 
 const MoviesByTitle = () => {
 
-    const [title, setTitle] = useState();
+    const [title, setTitle] = useState("");
 
     const dispatch = useDispatch();
 
     const handleSearchClick = () =>{
-        dispatch(getMoviesByTitleAsync({title}))
+        dispatch(getMoviesByTitleAsync({title: title}))
     }
 
     return (

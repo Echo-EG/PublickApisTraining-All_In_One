@@ -53,7 +53,6 @@ export const filterByTagAsync = createAsyncThunk(
         if(response.ok){
             const listForSplice = await response.json();
             const gameByGenre = [...listForSplice].splice(0, 20);
-            debugger
             return {gameByGenre}
         }
     }

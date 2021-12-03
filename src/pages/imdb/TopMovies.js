@@ -7,12 +7,12 @@ const TopMovies = () => {
     const dispatch = useDispatch();
 
     useEffect(() =>{
-        getTopRatedMoviesAsync()
-    }, []);
+        dispatch(getTopRatedMoviesAsync())
+    },[])
 
     return (
         <div>
-            <h1>Movie Details</h1>
+            <h1>Top movies</h1>
         </div>
     );
 };
