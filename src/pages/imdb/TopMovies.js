@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from "react-redux";
 import {getTopRatedMoviesAsync} from "../../redux/imdbSlice/ImdbSlice";
+import {Typography} from "@mui/material";
 
 const TopMovies = () => {
 
@@ -12,7 +13,7 @@ const TopMovies = () => {
 
     return (
         <div>
-            <h1>Top movies</h1>
+            <Typography sx={{m: 4}} variant="h3" align="center">Top movies</Typography>
         </div>
     );
 };

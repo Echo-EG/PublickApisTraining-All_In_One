@@ -35,24 +35,25 @@ const JokeByCategory = () => {
     if(!result){
         return (
             <div>
-                {categories.map((categoriesList) =>{
+                <Grid container spacing={2} justifyContent="center">{categories.map((categoriesList) => {
                     return <Grid item className={classes.alignCategories} sx={{m: 1}}>
-                        <Typography>{categoriesList}</Typography>
+                        <Typography variant="h5">{categoriesList}</Typography>
                         <input onClick={handleCategorieClick} type="radio" name="categories" value={categoriesList}/>
                     </Grid>
                 })}
-                <p>Select categorie</p>
+                </Grid>
+                <Typography align="center" variant="h5">Select categorie</Typography>
             </div>
         );
     }
     return (
         <div>
-            {categories.map((categoriesList) =>{
-                return <Grid item sx={{m:1}} className={classes.alignCategories}>
-                    <Typography>{categoriesList}</Typography>
+            <Grid container spacing={2} justifyContent="center">{categories.map((categoriesList) => {
+                return <Grid item sx={{m: 1}} className={classes.alignCategories}>
+                    <Typography variant="h5">{categoriesList}</Typography>
                     <input type="radio" onClick={handleCategorieClick} value={categoriesList} name="categories"/>
                 </Grid>
-            })}
+            })}</Grid>
             {result.map((newResult, key) =>{
                 return <Grid item sx={{m:3}} key={newResult.id} id={newResult.id} >
                     <Typography variant="h5">{newResult.value}</Typography>

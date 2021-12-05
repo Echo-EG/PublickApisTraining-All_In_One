@@ -14,7 +14,6 @@ export const getMoviesByTitleAsync = createAsyncThunk(
                 'x-rapidapi-host': host,
                 'x-rapidapi-key': key
             },
-
         })
         if(response.ok){
             const a = await response.json();
@@ -35,9 +34,7 @@ export const getTopRatedMoviesAsync = createAsyncThunk(
             },
         })
         if(response.ok){
-
             const topRated = await response.json()
-            // const limitList = [...topRated];
             const deleted = [...topRated].splice(0, 11);
             return {deleted};
         }

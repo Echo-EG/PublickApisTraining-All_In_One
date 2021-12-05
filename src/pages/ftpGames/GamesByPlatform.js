@@ -25,6 +25,7 @@ const GamesByPlatform = () => {
 
     const handleChange = (e) =>{
         dispatch(gamesByPlatformAsync({platform: e.target.value}))
+
         setChecked(true);
     }
 
@@ -34,25 +35,29 @@ const GamesByPlatform = () => {
     if (checked !== true){
         return (
             <div>
-                {platformList.map((newPlatformList, key) =>{
-                    return <Grid item key={newPlatformList.id}>
-                        <Typography >{newPlatformList.platform}</Typography>
-                        <input type="radio" onClick={handleChange} value={newPlatformList.platform} name="platform"/>
-                    </Grid>
-                })}
-                <p>Select platform</p>
+                <Grid container spacing={2} justifyContent="center">
+                    {platformList.map((newPlatformList, key) => {
+                        return <Grid item key={newPlatformList.id}>
+                            <Typography variant="h5">{newPlatformList.platform}</Typography>
+                            <input type="radio" onClick={handleChange} value={newPlatformList.platform} name="platform"/>
+                        </Grid>
+                    })}
+                </Grid>
+                <Typography variant="h5" align="center">Select platform</Typography>
             </div>
         );
     }
     return (
         <div>
-            {platformList.map((newPlatformList, key) =>{
-                return <Grid item key={newPlatformList.id}>
-                    <Typography >{newPlatformList.platform}</Typography>
-                    <input type="radio" onClick={handleChange} value={newPlatformList.platform} name="platform"/>
+            <Grid container spacing={2} justifyContent="center">
+                {platformList.map((newPlatformList, key) => {
+                    return <Grid item style={{display: "inline-block"}} key={newPlatformList.id}>
+                        <Typography variant="h5">{newPlatformList.platform}</Typography>
+                        <input type="radio" onClick={handleChange} value={newPlatformList.platform} name="platform"/>
                 </Grid>
             })}
-            <div>
+            </Grid>
+            <Grid container>
                 {ftpGames.map((listFromApi, key) => {
                     return <Grid item
                                  lg={4}
@@ -71,9 +76,7 @@ const GamesByPlatform = () => {
                         </Card>
                     </Grid>
                 })}
-            </div>
-
-
+            </Grid>
         </div>
     )
 };

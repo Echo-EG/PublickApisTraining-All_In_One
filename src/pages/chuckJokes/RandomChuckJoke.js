@@ -15,7 +15,8 @@ const RandomChuckJoke = () => {
 
     return (
         <div>
-            <Typography variant="h3" sx={{m: 1}}>{chuckJoke.value}</Typography>
+            <Typography sx={{m:3}} variant="h4" align="center">Random Chuck Joke</Typography>
+            <Typography align="center" variant="h5" sx={{m: 1}}>{chuckJoke.value}</Typography>
         </div>
     );
 };

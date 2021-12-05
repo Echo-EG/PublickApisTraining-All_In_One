@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import {Button, TextField} from "@mui/material";
+import {Button, CssBaseline, Grid, TextField, Typography} from "@mui/material";
 import {useDispatch} from "react-redux";
 import {getMoviesByTitleAsync} from "../../redux/imdbSlice/ImdbSlice";
 
@@ -17,17 +17,21 @@ const MoviesByTitle = () => {
     }
 
     return (
-        <div>
-            <h1>Movies by title</h1>
-            <div>
+        <CssBaseline>
+            <Grid container justifyContent="center" sx={{m: 4}}>
+            <Grid item>
+                <Typography variant="h3" style={{display: "block"}}>Movies by title</Typography>
                 <TextField
-                variant="outlined"
-                label="Search by title"
-                value={title}
-                onChange={e => setTitle(e.target.value)}/>
+                    // fullWidth
+                    style={{minWidth: "70%"}}
+                    variant="standard"
+                    label="Search by title"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}/>
                 <Button onClick={handleSearchClick}><SearchIcon/></Button>
-            </div>
-        </div>
+            </Grid>
+            </Grid>
+        </CssBaseline>
     );
 };
 
